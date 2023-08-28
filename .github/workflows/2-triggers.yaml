@@ -1,4 +1,4 @@
-name: triggers
+name: 2-triggers
 run-name: Testing triggers
 on:
   pull_request:
@@ -15,4 +15,4 @@ jobs:
   triggered:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "I was triggered by ${{ github.event.action }} ${{ github.event.inputs.my_input }}"
+      - run: echo "I was triggered by ${{ github.event_name }}.${{ github.event.action || 'none' }} ${{ github.event.inputs.my_input }}"

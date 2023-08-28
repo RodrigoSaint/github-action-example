@@ -1,4 +1,4 @@
-name: dependent_jobs
+name: 3-dependent_jobs
 on:
   workflow_dispatch: {}
 jobs:

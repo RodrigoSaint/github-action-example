@@ -1,0 +1,15 @@
+name: reusable-workflow
+on:
+  workflow_call:
+    inputs:
+      deployment-env:
+        required: true
+        type: string
+    secrets:
+      key:
+        required: true
+jobs:
+  reusing:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I was called with ${{ inputs.deployment-env }} secret ${{ secrets.key }}"

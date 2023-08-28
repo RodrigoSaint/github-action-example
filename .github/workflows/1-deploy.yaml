@@ -1,4 +1,4 @@
-name: deploy-frontend
+name: 1-deploy-frontend
 run-name: ${{ github.actor }} is deploying version ${{ github.run_number }}
 on:
   push:

@@ -1,0 +1,10 @@
+name: 7-reusing-workflow
+on:
+  workflow_dispatch: {}
+jobs:
+  call-workflow-passing-data:
+    uses: RodrigoSaint/github-action-example/.github/workflows/reusable-workflow.yml@main
+    with:
+      deployment-env: production
+    secrets:
+      key: "TOP_SECRET"

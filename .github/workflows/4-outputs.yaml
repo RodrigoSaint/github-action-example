@@ -1,4 +1,4 @@
-name: output-test
+name: 4-output-test
 on:
   workflow_dispatch: {}
 jobs:
