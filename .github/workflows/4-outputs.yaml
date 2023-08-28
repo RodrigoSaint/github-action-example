@@ -1,0 +1,22 @@
+name: output-test
+on:
+  workflow_dispatch: {}
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      greeting: ${{ steps.step1.outputs.test }}
+      target: ${{ steps.step2.outputs.test }}
+    steps:
+      - id: step1
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+      - id: step2
+        run: echo "test=world" >> "$GITHUB_OUTPUT"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - env:
+          GREETING: ${{needs.job1.outputs.greeting}}
+          TARGET: ${{needs.job1.outputs.target}}
+        run: echo "$GREETING $TARGET"

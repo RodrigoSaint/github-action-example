@@ -1,0 +1,23 @@
+name: dependent_jobs
+on:
+  workflow_dispatch: {}
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "preparing environment"
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "building application"
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "testing application"
+  deploy:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "deploying application"

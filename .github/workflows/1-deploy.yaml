@@ -1,0 +1,21 @@
+name: deploy-frontend
+run-name: ${{ github.actor }} is deploying version ${{ github.run_number }}
+on:
+  push:
+    branches:
+      - 'main'
+      - 'releases/**'
+jobs:
+  deploy-new-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm ci
+      - run: npm run build
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-central-1
+      - run: echo "I will deploy something"
