@@ -15,7 +15,5 @@ jobs:
           node-version: '18'
       - run: npm ci
       - run: npm run build
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: eu-central-1
       - run: echo "I will deploy something"
+      - run: ls .svelte-kit/output/client/_app/immutable/assets

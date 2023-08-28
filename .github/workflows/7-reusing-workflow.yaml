@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
 jobs:
   call-workflow-passing-data:
-    uses: RodrigoSaint/github-action-example/.github/workflows/reusable-workflow.yml@main
+    uses: RodrigoSaint/github-action-example/.github/workflows/6-reusable-workflow.yaml@main
     with:
       deployment-env: production
     secrets:
