@@ -15,6 +15,7 @@ jobs:
   triggered:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: echo "I was triggered by ${{ github.event_name }}.${{ github.event.action || 'none' }} ${{ github.event.inputs.my_input }}"
       - run: sed -i -e 's/=\"\//=\"/g ; /<head>/a<base href=\"./frontend-next/\" \/>' ./src/app.html
       - run: cat ./src/app.html
